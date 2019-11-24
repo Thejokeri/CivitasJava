@@ -84,14 +84,22 @@ class VistaTextual {
   }
 
   void gestionar () {
-      int opcion = menu("Seleccione gestion inmobiliaria",
-              new ArrayList<> (Arrays.asList("Vender", "Hipotecar", 
-                      "Cancelar hipoteca", "Construir casa", 
-                      "Construir hotel", "Terminar")));
-         
-      this.juegoModel.getJugadorActual();
+      ArrayList<String> propiedades = new ArrayList<String>();
+      ArrayList<String> acciones = new ArrayList<String> (
+                        Arrays.asList("Vender", "Hipotecar", "Cancelar hipoteca", 
+                                "Construir casa", "Construir hotel", "Terminar"));
+      
+      int opcion = menu("Seleccione gestion inmobiliaria", acciones);
       this.iGestion = opcion;
-      this.iPropiedad = 0;
+      
+      if (acciones.get(opcion) != "Termninar") {
+        for(TituloPropiedad p: this.juegoModel.getJugadorActual().getPropiedades()) {
+            propiedades.add(p.toString());
+        }
+        
+        this.iPropiedad = menu("Cual propiedad quieres "+ acciones.get(opcion) + "?",
+                propiedades);
+      }
   }
   
   public int getGestion(){

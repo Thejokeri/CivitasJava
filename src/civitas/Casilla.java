@@ -23,11 +23,13 @@ public class Casilla {
     Casilla(String nombre) {
         this.init();
         this.nombre = nombre;
+        this.tipo = TipoCasilla.DESCANSO;
     }
 
     Casilla(TituloPropiedad titulo) {
         this.init();
         this.tituloPropiedad = titulo;
+        this.nombre = titulo.getNombre();
         this.tipo = TipoCasilla.CALLE;
     }
     
@@ -35,13 +37,14 @@ public class Casilla {
         this.init();
         this.importe = cantidad;
         this.nombre = nombre;
-        this.tipo = TipoCasilla.CALLE;
+        this.tipo = TipoCasilla.IMPUESTO;
     }
     
     Casilla(int numCasillaCarcel, String nombre) {
         this.init();
         this.carcel = numCasillaCarcel;
         this.nombre = nombre;
+        this.tipo = TipoCasilla.JUEZ;
     }
     
     Casilla(MazoSorpresa mazo, String nombre) {
@@ -65,9 +68,12 @@ public class Casilla {
     }
     
     private void init() {
+        this.carcel = -1;
+        this.importe = (float) 0;
         this.nombre = "Defecto";
-        this.importe = (float) 0.0;
-        this.carcel = 1;
+        this.tituloPropiedad = null;
+        this.sorpresa = null;
+        this.mazo = null;
         this.tipo = null;
     }
     

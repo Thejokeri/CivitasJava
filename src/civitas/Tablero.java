@@ -71,7 +71,7 @@ public class Tablero {
     }
 
     public void aniadeJuez() {
-        Casilla juez = new Casilla(TipoCasilla.JUEZ.toString());
+        Casilla juez = new Casilla(this.numCasillaCarcel, "Ve a la carcel");
         
         if (!this.tieneJuez) {
             this.aniadeCasilla(juez);
