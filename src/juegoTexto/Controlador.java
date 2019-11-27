@@ -85,9 +85,9 @@ public class Controlador {
                         break;
                 }
                 this.juego.siguientePasoCompletado(siguientePaso);
+                this.vista.actualizarVista();
             }
             
-            this.vista.actualizarVista();
         }
         
         this.juego.infoJugadorTexto();

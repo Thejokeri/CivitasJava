@@ -137,6 +137,10 @@ public class Casilla {
     }
     
     public String toString() {
-        return "Nombre: " + this.nombre + " Importe: " + this.importe;
+        if (importe != (float) 0.0)
+            return "\n *---* " + nombre + " *---*"
+                    + "*---* Importe: " + importe + " *---*";
+        else
+            return "\n *---* " + nombre + " *---*";
     }
 }

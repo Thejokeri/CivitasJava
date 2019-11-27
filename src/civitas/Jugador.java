@@ -425,13 +425,20 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     public String toString() {
-        String salida = "Nombre: " + this.nombre + "\n"
-                        + "Casilla actula: " + this.numCasillaActual + "\n";
+        String salida = "\n *---* Nombre: " + this.nombre + " Casilla actual: " + this.numCasillaActual + " *---* \n\n";
+        salida += " *---* Propiedades *---*\n";
         
-        for(TituloPropiedad propiedades: this.propiedades) {
-            salida += propiedades.toString();
+        if (!this.propiedades.isEmpty()) {
+            int count = 0;
+            for(TituloPropiedad propiedades: this.propiedades) {
+                salida += "      " + count + ". " + propiedades.toString() + "\n";
+                count ++;
+            }
+        } else {
+            salida += "      No tiene propiedades\n\n";
         }
         
-        return salida;
+        
+        return salida + "\n";
     }
 }
