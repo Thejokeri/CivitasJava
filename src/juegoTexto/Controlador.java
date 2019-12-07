@@ -48,6 +48,7 @@ public class Controlador {
                            this.juego.comprar();
                         }
                         
+                        this.juego.siguientePasoCompletado(siguientePaso);
                         break;
                     case GESTIONAR:
                         this.vista.gestionar();
@@ -71,7 +72,7 @@ public class Controlador {
                             this.juego.construirHotel(ip);
                         }
                         
-                        
+                        this.juego.siguientePasoCompletado(siguientePaso);
                         break;
                     case SALIR_CARCEL:
                         SalidasCarcel salida = this.vista.salirCarcel();
@@ -82,9 +83,10 @@ public class Controlador {
                             this.juego.salirCarcelTirando();
                         }
                         
+                        this.juego.siguientePasoCompletado(siguientePaso);
                         break;
                 }
-                this.juego.siguientePasoCompletado(siguientePaso);
+                
                 this.vista.actualizarVista();
             }
             

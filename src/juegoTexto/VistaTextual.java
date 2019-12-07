@@ -92,7 +92,7 @@ class VistaTextual {
       int opcion = menu("Seleccione gestion inmobiliaria", acciones);
       this.iGestion = opcion;
       
-      if (acciones.get(opcion) != "Termninar") {
+      if (acciones.get(opcion) != "Terminar") {
         for(TituloPropiedad p: this.juegoModel.getJugadorActual().getPropiedades()) {
             propiedades.add(p.toString());
         }
@@ -112,14 +112,17 @@ class VistaTextual {
     
 
   void mostrarSiguienteOperacion(OperacionesJuego operacion) {
-      System.out.println(operacion.toString());
+      System.out.println("->>>- Operacion permitida -<<<-");
+      System.out.println("    " + operacion.toString() + "\n");
   }
 
 
   void mostrarEventos() {
+      System.out.println("-++++- Mostrando eventos del Diario -++++-");
       while(Diario.getInstance().eventosPendientes()) {
           System.out.println(Diario.getInstance().leerEvento());
       }
+      System.out.println("-++++- Fin de los eventos -++++-\n");
   }
   
   public void setCivitasJuego(CivitasJuego civitas){ 

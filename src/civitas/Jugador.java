@@ -32,6 +32,7 @@ public class Jugador implements Comparable<Jugador> {
         this.nombre = nombre;
         this.numCasillaActual = 0;
         this.saldo = Jugador.SaldoInicial;
+        this.encarcelado = false;
     }
     
     protected Jugador(Jugador otro) {
@@ -40,6 +41,7 @@ public class Jugador implements Comparable<Jugador> {
         this.numCasillaActual = otro.numCasillaActual;
         this.puedeComprar = otro.puedeComprar;
         this.saldo = otro.saldo;
+        this.encarcelado = otro.encarcelado;
     }
     
     boolean cancelarHipoteca(int ip) {
@@ -104,7 +106,7 @@ public class Jugador implements Comparable<Jugador> {
                 
                 if (result) {
                     this.propiedades.add(titulo);
-                    Diario.getInstance().ocurreEvento("El jugador "+ this.nombre +" compra la propiedad " + titulo.toString());
+                    Diario.getInstance().ocurreEvento("El jugador "+ this.nombre +" compra la propiedad " + titulo.getNombre());
                 }
             }
         }
@@ -221,7 +223,7 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean getPuedeComprar() {
-        return this.puedeComprar;
+        return this.puedeComprarCasilla();
     }
     
     protected float getSaldo() {
@@ -264,7 +266,7 @@ public class Jugador implements Comparable<Jugador> {
         if(!this.encarcelado) {
             this.numCasillaActual = numCasilla;
             this.puedeComprar = false;
-            Diario.getInstance().ocurreEvento("Se ha movido el jugador " + numCasilla + " casillas");
+            Diario.getInstance().ocurreEvento("Se ha movido el jugador: " + this.nombre + " casillas: " + numCasilla);
             salida = true;
         }
         
@@ -319,7 +321,7 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean puedeComprarCasilla() {
-        this.puedeComprar = !this.encarcelado;
+        this.puedeComprar = !this.encarcelado ;
         
         return this.puedeComprar;
     }
@@ -429,7 +431,7 @@ public class Jugador implements Comparable<Jugador> {
         salida += " *---* Propiedades *---*\n";
         
         if (!this.propiedades.isEmpty()) {
-            int count = 0;
+            int count = 1;
             for(TituloPropiedad propiedades: this.propiedades) {
                 salida += "      " + count + ". " + propiedades.toString() + "\n";
                 count ++;

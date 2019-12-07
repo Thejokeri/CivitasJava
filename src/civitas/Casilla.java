@@ -138,9 +138,9 @@ public class Casilla {
     
     public String toString() {
         if (importe != (float) 0.0)
-            return "\n *---* " + nombre + " *---*"
-                    + "*---* Importe: " + importe + " *---*";
+            return "\n   *---* " + nombre + " *---*"
+                    + "  *---* Importe: " + importe + " *---*";
         else
-            return "\n *---* " + nombre + " *---*";
+            return "\n   *---* " + nombre + " *---*";
     }
 }

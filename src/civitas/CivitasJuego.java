@@ -93,6 +93,12 @@ public class CivitasJuego {
         TituloPropiedad titulo = casilla.getTituloPropiedad();
         boolean res = jugadorActual.comprar(titulo);
         
+        if (res) {
+            System.out.println("Lo has comprado");
+        } else {
+            System.out.println("No lo has comprado");
+        }
+        
         return res;
     }
     
@@ -149,7 +155,7 @@ public class CivitasJuego {
     
     private void pasarTurno() {
         this.indiceJugadorActual = (this.indiceJugadorActual + 1) % this.jugadores.size();
-        this.estado = EstadosJuego.INICIO_TURNO;
+        //this.estado = EstadosJuego.INICIO_TURNO;
     }
     
     private ArrayList<Jugador> ranking() {

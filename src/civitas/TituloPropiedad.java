@@ -62,11 +62,9 @@ public class TituloPropiedad {
         boolean result = false;
         
         if (!this.tienePropietario()) {
-            if (this.esEsteElPropietario(jugador)) {
-                this.propietario = jugador;
-                result = true;
-                this.propietario.paga(this.precioCompra);
-            }
+            this.propietario = jugador;
+            result = true;
+            this.propietario.paga(this.precioCompra);
         }
         
         return result;
@@ -187,7 +185,7 @@ public class TituloPropiedad {
     }
 
     boolean tienePropietario() {
-        return this.propietario.getPropiedades().indexOf(this) != -1;
+        return this.propietario != null && this.propietario.getPropiedades().indexOf(this) != -1;
     }
 
     public String toString() {
