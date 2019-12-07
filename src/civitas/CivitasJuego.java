@@ -155,7 +155,6 @@ public class CivitasJuego {
     
     private void pasarTurno() {
         this.indiceJugadorActual = (this.indiceJugadorActual + 1) % this.jugadores.size();
-        //this.estado = EstadosJuego.INICIO_TURNO;
     }
     
     private ArrayList<Jugador> ranking() {
