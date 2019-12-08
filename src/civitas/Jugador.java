@@ -25,7 +25,7 @@ public class Jugador implements Comparable<Jugador> {
     private float saldo;
     private static float SaldoInicial = 7500;
     private ArrayList<TituloPropiedad> propiedades = new ArrayList<TituloPropiedad>();
-    private Sorpresa salvoconducto;
+    private SorpresaSalirCarcel salvoconducto;
     
     
     Jugador(String nombre) {
@@ -273,7 +273,7 @@ public class Jugador implements Comparable<Jugador> {
         return salida;
     }
     
-    boolean obtenerSalvoconducto(Sorpresa sorpresa) {
+    boolean obtenerSalvoconducto(SorpresaSalirCarcel sorpresa) {
         boolean salida = false;
         
         if(!this.encarcelado) {
