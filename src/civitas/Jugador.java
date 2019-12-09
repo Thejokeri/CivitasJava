@@ -42,6 +42,7 @@ public class Jugador implements Comparable<Jugador> {
         this.puedeComprar = otro.puedeComprar;
         this.saldo = otro.saldo;
         this.encarcelado = otro.encarcelado;
+        this.propiedades = (ArrayList<TituloPropiedad>)otro.propiedades.clone();
     }
     
     boolean cancelarHipoteca(int ip) {
@@ -360,7 +361,7 @@ public class Jugador implements Comparable<Jugador> {
         return puedoEdificarHotel;
     }
    
-    private boolean puedoGastar(float precio) {
+    public boolean puedoGastar(float precio) {
         boolean salida = false;
         
         if (!this.encarcelado) {
