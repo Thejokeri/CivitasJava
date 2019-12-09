@@ -24,12 +24,14 @@ public class Especulador extends Jugador {
         }
     }
     
-    private int getCasaMax() {
-        return this.getCasaMax() * Especulador.FactorEspeculador;
+    @Override
+    public int getCasaMax() {
+        return super.getCasaMax() * Especulador.FactorEspeculador;
     }
     
-    private int getHotelesMax() {
-        return this.getHotelesMax() * Especulador.FactorEspeculador;
+    @Override
+    public int getHotelesMax() {
+        return super.getHotelesMax() * Especulador.FactorEspeculador;
     }
     
     private boolean pagarFianza(){
