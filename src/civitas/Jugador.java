@@ -7,6 +7,7 @@ package civitas;
 
 import java.lang.Float;
 import java.util.ArrayList;
+import GUI.Dado;
 
 /**
  *
@@ -203,7 +204,7 @@ public class Jugador implements Comparable<Jugador> {
         return Jugador.HotelesMax;
     }
     
-    protected String getNombre() {
+    public String getNombre() {
         return this.nombre;
     }
     
@@ -227,7 +228,7 @@ public class Jugador implements Comparable<Jugador> {
         return this.puedeComprarCasilla();
     }
     
-    protected float getSaldo() {
+    public float getSaldo() {
         return this.saldo;
     }
     

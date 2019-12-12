@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="nombrePropiedadLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre:"/>
+        <Property name="toolTipText" type="java.lang.String" value="Nombre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nombrePropiedadTextField">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Nombre"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="casasLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xba; Casas:"/>
+        <Property name="toolTipText" type="java.lang.String" value="Numero de casas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="casasTextField">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Numero de casas"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hotelesLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xba; de Hoteles:"/>
+        <Property name="toolTipText" type="java.lang.String" value="Numero de hoteles"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="hotelesTextField">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Numero de hoteles"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="hipotecadaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hipotecada:"/>
+        <Property name="toolTipText" type="java.lang.String" value="hipotecada"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="hipotecadaTextField">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="hipotecada"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

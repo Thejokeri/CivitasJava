@@ -121,15 +121,15 @@ public class TituloPropiedad {
         return (float) (this.hipotecaBase * (1 + (this.numCasas * 0.5) + (this.numHoteles * 0.5)));
     }
 
-    String getNombre() {
+    public String getNombre() {
         return this.nombre;
     }
 
-    int getNumCasas() {
+    public int getNumCasas() {
         return this.numCasas;
     }
 
-    int getNumHoteles() {
+    public int getNumHoteles() {
         return this.numHoteles;
     }
 

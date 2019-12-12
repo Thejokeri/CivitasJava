@@ -6,8 +6,7 @@
 package juegoTexto;
 
 import civitas.CivitasJuego;
-import civitas.Dado;
-import civitas.Dado;
+import GUI.Dado;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
