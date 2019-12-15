@@ -28,7 +28,7 @@ public class Controlador {
         this.vista = vista;
     }
     
-    /*void juega() {
+    void juega() {
         this.vista.setCivitasJuego(juego);
         
         while(!this.juego.finalDelJuego()) {
@@ -95,5 +95,5 @@ public class Controlador {
         }
         
         this.juego.infoJugadorTexto();
-    }*/
+    }
 }
