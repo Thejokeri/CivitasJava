@@ -31,9 +31,7 @@ public class Controlador {
     void juega() {
         this.vista.setCivitasJuego(juego);
         
-        while(!this.juego.finalDelJuego()) {
-            this.vista.pausa();
-            
+        while(!this.juego.finalDelJuego()) {            
             OperacionesJuego siguientePaso = this.juego.siguientePaso();
             this.vista.mostrarSiguienteOperacion(siguientePaso);
             

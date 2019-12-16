@@ -6,9 +6,13 @@
 package GUI;
 
 import civitas.CivitasJuego;
+import civitas.OperacionesJuego;
 import javax.swing.JOptionPane;
 import civitas.Respuestas;
 import civitas.SalidasCarcel;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -27,14 +31,42 @@ public class CivitasView extends javax.swing.JFrame {
         revalidate();
     }
 
+    public void actualizarVista() {
+        this.jugadorPanel.setJugador(juego.getJugadorActual());
+        this.casillaPanel.setCasilla(juego.getCasillaActual());
+        repaint();
+    }
+    
     public void setCivitasJuego(CivitasJuego civitas) {
         juego = civitas;
         new CivitasView().setVisible(true);
     }
     
-    public void mostrarSiguienteOperacion(String operacion) {
-        operacionLabel.setText(operacion);
-        //Llamar actualizarVista
+    public void mostrarSiguienteOperacion(OperacionesJuego operacion) {
+        ArrayList<String> operaciones = new ArrayList<>(Arrays.asList(
+                "Avanzar", "Comprar", "Gestionar", "Salir de la carcel",
+                "Pasar el turno"
+        ));
+        
+        int indice = 4;
+        
+        switch (operacion) {
+            case AVANZAR:
+                indice = 0;
+                break;
+            case COMPRAR:
+                indice = 1;
+                break;
+            case GESTIONAR:
+                indice = 2;
+                break;
+            case SALIR_CARCEL:
+                indice = 3;
+                break;
+        }
+        
+        operacionLabel.setText(operaciones.get(indice));
+        this.actualizarVista();
     }
     
     void mostrarEventos() {
@@ -66,6 +98,14 @@ public class CivitasView extends javax.swing.JFrame {
         revalidate();
     }
     
+    public int getGestion() {
+        return this.gestionarD.getGestion();
+    }
+    
+    public int getPropiedad() {
+        return this.gestionarD.getPropiedad();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,15 +115,15 @@ public class CivitasView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contenedorVistaJugador = new GUI.JugadorPanel();
-        casillaPanel1 = new GUI.CasillaPanel();
+        jugadorPanel = new GUI.JugadorPanel();
+        casillaPanel = new GUI.CasillaPanel();
         jPanel1 = new javax.swing.JPanel();
         operacionLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(50, 50));
-        getContentPane().add(contenedorVistaJugador, java.awt.BorderLayout.LINE_END);
-        getContentPane().add(casillaPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jugadorPanel, java.awt.BorderLayout.LINE_END);
+        getContentPane().add(casillaPanel, java.awt.BorderLayout.CENTER);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
@@ -131,9 +171,9 @@ public class CivitasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.CasillaPanel casillaPanel1;
-    private GUI.JugadorPanel contenedorVistaJugador;
+    private GUI.CasillaPanel casillaPanel;
     private javax.swing.JPanel jPanel1;
+    private GUI.JugadorPanel jugadorPanel;
     private javax.swing.JLabel operacionLabel;
     // End of variables declaration//GEN-END:variables
 }

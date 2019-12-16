@@ -26,17 +26,16 @@ public class JugadorPanel extends javax.swing.JPanel {
     void setJugador(Jugador jugador) {
         String estado;
                 
-        jugador = jugador;
-        this.nombreTextField.setText(jugador.getNombre());
-        this.saldoTextField.setText(Float.toString(jugador.getSaldo()));
+        this.jugador = jugador;
+        
+        nombreTextField.setText(jugador.getNombre());
+        saldoTextField.setText(Float.toString(jugador.getSaldo()));
         estado = (jugador.isEncarcelado()) ? "Si" : "No";
-        this.encarceladoTextField.setText(estado);
+        encarceladoTextField.setText(estado);
         estado = (jugador.isEncarcelado()) ? "Si" : "No";
-        this.especuladorTextField.setText(estado);
+        especuladorTextField.setText(estado);
         
         this.rellenaPropiedades(jugador.getPropiedades());
-        
-        repaint();
     }
     
     private void rellenaPropiedades(ArrayList<TituloPropiedad> lista) {
@@ -93,6 +92,7 @@ public class JugadorPanel extends javax.swing.JPanel {
 
         nombreTextField.setToolTipText("Nombre del jugador");
         nombreTextField.setEnabled(false);
+        nombreTextField.setPreferredSize(new java.awt.Dimension(90, 26));
         jPanel1.add(nombreTextField);
 
         saldoLabel.setText("Saldo:");
@@ -101,6 +101,7 @@ public class JugadorPanel extends javax.swing.JPanel {
 
         saldoTextField.setToolTipText("Saldo del jugador");
         saldoTextField.setEnabled(false);
+        saldoTextField.setPreferredSize(new java.awt.Dimension(90, 26));
         jPanel1.add(saldoTextField);
 
         encarceladoLabel.setText("Encarcelado:");
@@ -109,6 +110,7 @@ public class JugadorPanel extends javax.swing.JPanel {
 
         encarceladoTextField.setToolTipText("");
         encarceladoTextField.setEnabled(false);
+        encarceladoTextField.setPreferredSize(new java.awt.Dimension(90, 26));
         jPanel1.add(encarceladoTextField);
 
         especuladorLabel.setText("Especulador:");
@@ -116,6 +118,7 @@ public class JugadorPanel extends javax.swing.JPanel {
         jPanel1.add(especuladorLabel);
 
         especuladorTextField.setEnabled(false);
+        especuladorTextField.setPreferredSize(new java.awt.Dimension(90, 26));
         jPanel1.add(especuladorTextField);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);

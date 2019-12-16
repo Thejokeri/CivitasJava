@@ -6,7 +6,6 @@
 package GUI;
 
 import civitas.CivitasJuego;
-import java.util.ArrayList;
 
 /**
  *
@@ -23,9 +22,9 @@ public class TestP5 {
         Dado dado = Dado.getInstance();
         dado.setDebug(true);
 
-        System.out.println("Nombre " + cn.getNombres().get(0));
         CivitasJuego civitas = new CivitasJuego(cn.getNombres());
         Controlador controlador = new Controlador(civitas, vista);
         vista.setCivitasJuego(civitas);
+        vista.actualizarVista();
     }
 }

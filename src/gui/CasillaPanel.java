@@ -63,6 +63,7 @@ public class CasillaPanel extends javax.swing.JPanel {
 
         jTextField1.setToolTipText("nombre");
         jTextField1.setEnabled(false);
+        jTextField1.setPreferredSize(new java.awt.Dimension(90, 26));
         add(jTextField1);
 
         jLabel2.setText("Importe:");
@@ -71,6 +72,7 @@ public class CasillaPanel extends javax.swing.JPanel {
 
         jTextField2.setToolTipText("importe");
         jTextField2.setEnabled(false);
+        jTextField2.setPreferredSize(new java.awt.Dimension(90, 26));
         add(jTextField2);
     }// </editor-fold>//GEN-END:initComponents
 
