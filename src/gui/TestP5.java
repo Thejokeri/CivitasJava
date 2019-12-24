@@ -16,7 +16,7 @@ public class TestP5 {
     public static void main(String[] args) {
         CivitasView vista = new CivitasView();
         CapturaNombres cn = new CapturaNombres(vista, true);
-        
+
         Dado.createInstance(vista);
         
         Dado dado = Dado.getInstance();
@@ -26,5 +26,6 @@ public class TestP5 {
         Controlador controlador = new Controlador(civitas, vista);
         vista.setCivitasJuego(civitas);
         vista.actualizarVista();
+        controlador.juega();
     }
 }

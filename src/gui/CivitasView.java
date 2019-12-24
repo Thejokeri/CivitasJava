@@ -35,6 +35,7 @@ public class CivitasView extends javax.swing.JFrame {
         this.jugadorPanel.setJugador(juego.getJugadorActual());
         this.casillaPanel.setCasilla(juego.getCasillaActual());
         repaint();
+        this.setVisible(true);
     }
     
     public void setCivitasJuego(CivitasJuego civitas) {
