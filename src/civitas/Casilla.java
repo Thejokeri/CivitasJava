@@ -32,16 +32,19 @@ public class Casilla {
     }
     
     void recibeJugador(int actual, ArrayList<Jugador> todos) {
-        if (this instanceof CasillaCalle){ 
-            ((CasillaCalle) this).recibeJugador_calle(actual, todos);
-        } else if (this instanceof CasillaImpuesto) {
-            ((CasillaImpuesto) this).recibeJugador_impuesto(actual, todos);
-        } else if (this instanceof CasillaJuez) {
-            ((CasillaJuez) this).recibeJugador_juez(actual, todos);
-        } else if (this instanceof CasillaSorpresa) {
-            ((CasillaSorpresa) this).recibeJugador_sorpresa(actual, todos);
-        } else {
+        if(this.jugadorCorrecto(actual, todos)) {
             this.informe(actual, todos);
+            if (this instanceof CasillaCalle){ 
+                ((CasillaCalle) this).recibeJugador_calle(actual, todos);
+            } else if (this instanceof CasillaImpuesto) {
+                ((CasillaImpuesto) this).recibeJugador_impuesto(actual, todos);
+            } else if (this instanceof CasillaJuez) {
+                ((CasillaJuez) this).recibeJugador_juez(actual, todos);
+            } else if (this instanceof CasillaSorpresa) {
+                ((CasillaSorpresa) this).recibeJugador_sorpresa(actual, todos);
+            } else {
+                this.informe(actual, todos);
+            }
         }
     }
 

@@ -21,10 +21,7 @@ public class CasillaSorpresa extends Casilla {
     }
     
     public void recibeJugador_sorpresa(int actual, ArrayList<Jugador> todos) {
-        if (this.jugadorCorrecto(actual, todos)) {
-            sorpresa = this.mazo.siguiente();
-            super.informe(actual, todos);
-            sorpresa.aplicarAJugador(actual, todos);
-        }
+        sorpresa = this.mazo.siguiente();
+        sorpresa.aplicarAJugador(actual, todos);
     }
 }

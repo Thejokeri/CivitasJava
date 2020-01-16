@@ -162,11 +162,10 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     protected boolean debeSerEncarcelado() {
-        boolean salida = false;
+        boolean salida = !this.encarcelado;
         
-        if(!this.encarcelado && !this.tieneSalvoconducto()) {
-            salida = true;
-        } else if (this.tieneSalvoconducto()) {
+        if (salida && this.tieneSalvoconducto()) {
+            salida = false;
             this.perderSalvoconducto();
             Diario.getInstance().ocurreEvento("El jugador se ha librado de la carcel");
         }
@@ -311,7 +310,7 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     boolean pasaPorSalida() {
-        this.modificarSaldo(10000);
+        this.modificarSaldo(1000);
         Diario.getInstance().ocurreEvento("El jugador ha pasado por la salida");
         
         return true;

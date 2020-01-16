@@ -50,7 +50,6 @@ public abstract class Sorpresa {
         this.mazo = mazo;
     }
     
-    
     abstract void aplicarAJugador(int actual, ArrayList<Jugador> todos);
     
     public void informe(int actual, ArrayList<Jugador> todos) {

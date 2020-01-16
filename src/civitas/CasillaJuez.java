@@ -20,9 +20,6 @@ public class CasillaJuez extends Casilla {
     }
     
     public void recibeJugador_juez(int actual, ArrayList<Jugador> todos) {
-        if (this.jugadorCorrecto(actual, todos)) {
-            super.informe(actual, todos);
-            todos.get(actual).encarcelar(carcel);
-        }
+        todos.get(actual).encarcelar(carcel);
     }
 }

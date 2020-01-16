@@ -21,7 +21,6 @@ public class SorpresaPorJugador extends Sorpresa {
     void aplicarAJugador(int actual, ArrayList<Jugador> todos) {
         if (super.jugadorCorrecto(actual, todos)) {
             super.informe(actual, todos);
-            Jugador jugador = todos.get(actual);
             Sorpresa pago = new SorpresaPagarCobrar( -1 * this.valor, this.texto);
 
             for (int i = 0; i < todos.size(); i++) {

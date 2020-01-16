@@ -20,10 +20,7 @@ public class CasillaImpuesto extends Casilla {
     }
     
     public void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos) {
-        if (this.jugadorCorrecto(actual, todos)) {
-            super.informe(actual, todos);
-            todos.get(actual).pagaImpuesto(importe);
-        }
+        todos.get(actual).pagaImpuesto(importe);
     }
     
     public String toString() {

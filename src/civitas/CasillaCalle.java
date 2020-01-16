@@ -24,15 +24,12 @@ public class CasillaCalle extends Casilla {
     }
     
     public void recibeJugador_calle(int actual, ArrayList<Jugador> todos) {
-        if (this.jugadorCorrecto(actual, todos)) {
-            super.informe(actual, todos);
-            Jugador jugador = todos.get(actual);
-            
-            if (!this.tituloPropiedad.tienePropietario()) {
-                jugador.puedeComprarCasilla();
-            } else {
-                this.tituloPropiedad.tramitarAlquiler(jugador);
-            }
+        Jugador jugador = todos.get(actual);
+
+        if (!this.tituloPropiedad.tienePropietario()) {
+            jugador.puedeComprarCasilla();
+        } else {
+            this.tituloPropiedad.tramitarAlquiler(jugador);
         }
     }
 }
