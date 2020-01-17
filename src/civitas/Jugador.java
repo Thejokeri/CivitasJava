@@ -110,6 +110,8 @@ public class Jugador implements Comparable<Jugador> {
                     this.propiedades.add(titulo);
                     Diario.getInstance().ocurreEvento("El jugador "+ this.nombre +" compra la propiedad " + titulo.getNombre());
                 }
+                
+                this.puedeComprar = false;
             }
         }
         

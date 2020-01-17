@@ -42,8 +42,6 @@ public class Casilla {
                 ((CasillaJuez) this).recibeJugador_juez(actual, todos);
             } else if (this instanceof CasillaSorpresa) {
                 ((CasillaSorpresa) this).recibeJugador_sorpresa(actual, todos);
-            } else {
-                this.informe(actual, todos);
             }
         }
     }

@@ -44,12 +44,10 @@ public class TituloPropiedad {
     boolean cancelarHipoteca(Jugador jugador) {
         boolean result = false;
         
-        if (this.hipotecado) {
-            if (this.esEsteElPropietario(jugador)) {
+        if (this.hipotecado && this.esEsteElPropietario(jugador)) {
                 this.propietario.paga(this.getImporteCancelarHipoteca());
                 this.hipotecado = false;
                 result = true;
-            }
         }
         
         return result;
