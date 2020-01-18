@@ -20,11 +20,12 @@ public class CasillaImpuesto extends Casilla {
     }
     
     public void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos) {
+        super.informe(actual, todos);
         todos.get(actual).pagaImpuesto(importe);
     }
     
+    @Override
     public String toString() {
-        return "\n   *---* " + super.getNombre() + " *---*"
-                    + "  *---* Importe: " + importe + " *---*";
+        return super.toString() + "  *---* Importe: " + importe + " *---*";
     }
 }

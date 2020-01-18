@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class SorpresaSalirCarcel extends Sorpresa {
 
     SorpresaSalirCarcel(MazoSorpresa mazo) {
-        super(mazo);
+        super.init();
+        this.mazo = mazo;
     }
     
     @Override
@@ -42,5 +43,10 @@ public class SorpresaSalirCarcel extends Sorpresa {
     
     void usada() {
         this.mazo.habilitarCartaEspecial(this);
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

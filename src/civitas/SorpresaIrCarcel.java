@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class SorpresaIrCarcel extends Sorpresa {
 
     SorpresaIrCarcel(Tablero tablero) {
-        super(tablero);
+        super.init();
+        this.tablero = tablero;
     }
     
     @Override
@@ -23,5 +24,10 @@ public class SorpresaIrCarcel extends Sorpresa {
             super.informe(actual, todos);
             todos.get(actual).encarcelar(this.tablero.getCarcel());
         }
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

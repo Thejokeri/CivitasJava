@@ -20,6 +20,12 @@ public class CasillaJuez extends Casilla {
     }
     
     public void recibeJugador_juez(int actual, ArrayList<Jugador> todos) {
+        super.informe(actual, todos);
         todos.get(actual).encarcelar(carcel);
+    }
+    
+    @Override
+    public String toString() {
+        return "\n   *---* Casilla Juez: " + super.getNombre() + " *---*";
     }
 }

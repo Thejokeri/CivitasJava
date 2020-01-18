@@ -14,7 +14,9 @@ import java.util.ArrayList;
 public class SorpresaPagarCobrar extends Sorpresa {
 
     SorpresaPagarCobrar(int valor, String texto) {
-        super(valor, texto);
+        super.init();
+        this.valor = valor;
+        this.texto = texto;
     }
     
     @Override
@@ -24,5 +26,10 @@ public class SorpresaPagarCobrar extends Sorpresa {
             Jugador jugador = todos.get(actual);
             jugador.modificarSaldo(this.valor);
         }
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "\n *--* Valor:" + valor + "*--*";
     }
 }

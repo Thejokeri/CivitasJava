@@ -33,7 +33,6 @@ public class Casilla {
     
     void recibeJugador(int actual, ArrayList<Jugador> todos) {
         if(this.jugadorCorrecto(actual, todos)) {
-            this.informe(actual, todos);
             if (this instanceof CasillaCalle){ 
                 ((CasillaCalle) this).recibeJugador_calle(actual, todos);
             } else if (this instanceof CasillaImpuesto) {
@@ -42,10 +41,13 @@ public class Casilla {
                 ((CasillaJuez) this).recibeJugador_juez(actual, todos);
             } else if (this instanceof CasillaSorpresa) {
                 ((CasillaSorpresa) this).recibeJugador_sorpresa(actual, todos);
+            } else {
+                this.informe(actual, todos);
             }
         }
     }
 
+    @Override
     public String toString() {
         return "\n   *---* " + nombre + " *---*";
     }

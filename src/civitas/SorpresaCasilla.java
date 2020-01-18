@@ -13,8 +13,12 @@ import java.util.ArrayList;
  */
 public class SorpresaCasilla extends Sorpresa {
 
+
     SorpresaCasilla(Tablero tablero, int valor, String texto) {
-        super(tablero, valor, texto);
+        super.init();
+        this.tablero = tablero;
+        this.valor = valor;
+        this.texto = texto;
     }
     
     @Override
@@ -29,5 +33,10 @@ public class SorpresaCasilla extends Sorpresa {
             Casilla casilla = this.tablero.getCasilla(posicion);
             casilla.recibeJugador(actual, todos);
         }
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "\n *--* Valor:" + valor + "*--*";
     }
 }

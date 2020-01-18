@@ -21,7 +21,13 @@ public class CasillaSorpresa extends Casilla {
     }
     
     public void recibeJugador_sorpresa(int actual, ArrayList<Jugador> todos) {
+        super.informe(actual, todos);
         sorpresa = this.mazo.siguiente();
         sorpresa.aplicarAJugador(actual, todos);
+    }
+    
+    @Override
+    public String toString() {
+        return "\n   *---* Casilla Sorpresa: " + super.getNombre() + " *---*";
     }
 }

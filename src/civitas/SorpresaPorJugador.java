@@ -14,7 +14,9 @@ import java.util.ArrayList;
 public class SorpresaPorJugador extends Sorpresa {
 
     SorpresaPorJugador(int valor, String texto) {
-        super(valor, texto);
+        super.init();
+        this.valor = valor;
+        this.texto = texto;
     }
 
     @Override
@@ -32,5 +34,10 @@ public class SorpresaPorJugador extends Sorpresa {
             Sorpresa cobro = new SorpresaPagarCobrar((todos.size() - 1) * this.valor, this.texto);
             cobro.aplicarAJugador(actual, todos);
         }
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "\n *--* Valor:" + valor + "*--*";
     }
 }

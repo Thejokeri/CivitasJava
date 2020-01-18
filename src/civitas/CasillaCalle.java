@@ -24,6 +24,7 @@ public class CasillaCalle extends Casilla {
     }
     
     public void recibeJugador_calle(int actual, ArrayList<Jugador> todos) {
+        super.informe(actual, todos);
         Jugador jugador = todos.get(actual);
 
         if (!this.tituloPropiedad.tienePropietario()) {
@@ -31,5 +32,10 @@ public class CasillaCalle extends Casilla {
         } else {
             this.tituloPropiedad.tramitarAlquiler(jugador);
         }
+    }
+    
+    @Override
+    public String toString() {
+        return "\n   *---* Nombre de la propiedad: " + super.getNombre() + " *---*";
     }
 }

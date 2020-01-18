@@ -13,8 +13,10 @@ import java.util.ArrayList;
  */
 public class SorpresaJugadorEspeculador extends Sorpresa {
 
-    public SorpresaJugadorEspeculador( int valor, String texto) {
-        super(valor, texto);
+    SorpresaJugadorEspeculador(int valor, String texto) {
+        super.init();
+        this.valor = valor;
+        this.texto = texto;
     }
 
     @Override
@@ -24,5 +26,10 @@ public class SorpresaJugadorEspeculador extends Sorpresa {
             Especulador jugador = new Especulador(todos.get(actual), this.valor);
             todos.set(actual, jugador);
         }
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "\n *--* Valor:" + valor + "*--*";
     }
 }
