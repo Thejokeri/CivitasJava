@@ -24,7 +24,7 @@ public class PropiedadPanel extends javax.swing.JPanel {
     void setPropiedad(TituloPropiedad tituloPropiedad) {
         String estado;
         
-        tituloPropiedad = tituloPropiedad;
+        this.tituloPropiedad = tituloPropiedad;
         
         this.nombrePropiedadTextField.setText(tituloPropiedad.getNombre());
         this.casasTextField.setText(Integer.toString(tituloPropiedad.getNumCasas()));

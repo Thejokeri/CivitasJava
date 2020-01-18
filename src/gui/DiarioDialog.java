@@ -27,9 +27,10 @@ public class DiarioDialog extends javax.swing.JDialog {
 
     private void mostrarEventos() {
         if (diario.eventosPendientes()) {
-           this.setVisible(true);
+            this.setVisible(true);
            
             while(diario.eventosPendientes()) {
+                System.out.print(diario.leerEvento());
                 eventosTextArea.setText(diario.leerEvento());
             }
         }

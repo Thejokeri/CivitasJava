@@ -72,6 +72,8 @@ public class CivitasView extends javax.swing.JFrame {
     
     void mostrarEventos() {
         DiarioDialog diarioD = new DiarioDialog(this, true); // crear la ventana del 
+        diarioD.repaint();
+        diarioD.revalidate();
     }
     
     Respuestas comprar() {
@@ -92,11 +94,11 @@ public class CivitasView extends javax.swing.JFrame {
     }
     
     void gestionar() {
-        gestionarD.gestionar(juego.getJugadorActual());
-        gestionarD.setVisible(true);
         pack();
         repaint();
         revalidate();
+        gestionarD.gestionar(juego.getJugadorActual());
+        gestionarD.setVisible(true);
     }
     
     public int getGestion() {

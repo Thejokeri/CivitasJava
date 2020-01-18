@@ -29,16 +29,18 @@ public class CasillaPanel extends javax.swing.JPanel {
         this.removeAll();
         
         if (casilla instanceof CasillaCalle) {
-            
+            nombreTextField.setText(casilla.getNombre());
         } else if (casilla instanceof CasillaImpuesto) {
-        
+            nombreTextField.setText(casilla.getNombre());
         } else if (casilla instanceof CasillaJuez) {
-        
+            nombreTextField.setText(casilla.getNombre());
         } else if (casilla instanceof CasillaSorpresa) {
-        
+            nombreTextField.setText(casilla.getNombre());
         } else {
-            
+            nombreTextField.setText(casilla.getNombre());
         }
+        
+        repaint();
     }
     
     /**
@@ -51,9 +53,9 @@ public class CasillaPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nombreTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        importeTextField = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Casilla Actual"));
 
@@ -61,26 +63,26 @@ public class CasillaPanel extends javax.swing.JPanel {
         jLabel1.setToolTipText("nombre");
         add(jLabel1);
 
-        jTextField1.setToolTipText("nombre");
-        jTextField1.setEnabled(false);
-        jTextField1.setPreferredSize(new java.awt.Dimension(90, 26));
-        add(jTextField1);
+        nombreTextField.setToolTipText("nombre");
+        nombreTextField.setEnabled(false);
+        nombreTextField.setPreferredSize(new java.awt.Dimension(90, 26));
+        add(nombreTextField);
 
         jLabel2.setText("Importe:");
         jLabel2.setToolTipText("importe");
         add(jLabel2);
 
-        jTextField2.setToolTipText("importe");
-        jTextField2.setEnabled(false);
-        jTextField2.setPreferredSize(new java.awt.Dimension(90, 26));
-        add(jTextField2);
+        importeTextField.setToolTipText("importe");
+        importeTextField.setEnabled(false);
+        importeTextField.setPreferredSize(new java.awt.Dimension(90, 26));
+        add(importeTextField);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField importeTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nombreTextField;
     // End of variables declaration//GEN-END:variables
 }

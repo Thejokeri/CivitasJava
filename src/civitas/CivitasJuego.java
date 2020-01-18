@@ -33,7 +33,7 @@ public class CivitasJuego {
         this.estado = this.gestorEstados.estadoInicial();
         this.indiceJugadorActual = Dado.getInstance().quienEmpieza(totaljugadores);
         this.inicializarTablero(new MazoSorpresa());
-        this.inicializarMazoSorpresas(new Tablero(9));
+        this.inicializarMazoSorpresas(this.tablero);
     }
     
     private void avanzaJugador() {
@@ -136,12 +136,13 @@ public class CivitasJuego {
     }
     
     private void inicializarTablero(MazoSorpresa mazo) {
+        this.tablero = new Tablero(9);
         this.mazo = mazo;
         
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Ronda de Valencia", (float) 35, (float) 0.5, (float) 55, (float) 60, (float) 120)));
         this.tablero.aniadeCasilla(new CasillaSorpresa(this.mazo, "Caja de Comunidad"));
         this.tablero.aniadeCasilla(new CasillaImpuesto((float) 200, "Impuesto sobre el capital"));
-
+        
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Glorieta cuatro caminos", (float) 55, (float) 0.5, (float) 95, (float) 100, (float) 200)));
         this.tablero.aniadeCasilla(new CasillaSorpresa(this.mazo, "Suerte"));
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Calle bravo Murillo", (float) 65, (float) 0.5, (float) 115, (float) 120, (float) 240)));
