@@ -131,6 +131,8 @@ public class CivitasJuego {
         this.mazo.alMazo(new SorpresaSalirCarcel(this.mazo));
         
         this.mazo.alMazo(new SorpresaIrCarcel(this.tablero));
+        
+        this.mazo.alMazo(new SorpresaJugadorEspeculador(1000, "Te conviertes en jugador especulador"));
     }
     
     private void inicializarTablero(MazoSorpresa mazo) {
