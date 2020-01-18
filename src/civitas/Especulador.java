@@ -5,8 +5,6 @@
  */
 package civitas;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author thejoker
@@ -19,9 +17,9 @@ public class Especulador extends Jugador {
         super(otro);
         this.fianza = fianza;
         
-        for(TituloPropiedad propiedad : otro.getPropiedades()) {
+        otro.getPropiedades().forEach((propiedad) -> {
             propiedad.actualizarPropietarioPorConversion(this);
-        }
+        });
     }
     
     @Override
@@ -46,12 +44,10 @@ public class Especulador extends Jugador {
     
     @Override
     boolean encarcelar(int numCasillaCarcel) {
-        if(!super.tieneSalvoconducto()) {
-            if (!this.pagarFianza()){
-                this.moverACasilla(numCasillaCarcel);
-                this.encarcelado = true;
-                Diario.getInstance().ocurreEvento("El jugador ha sido encarcelado");
-            }
+        if(!super.tieneSalvoconducto() && !this.pagarFianza()){
+            this.moverACasilla(numCasillaCarcel);
+            this.encarcelado = true;
+            Diario.getInstance().ocurreEvento("El jugador ha sido encarcelado");
         }
         
         return this.encarcelado;
@@ -66,36 +62,6 @@ public class Especulador extends Jugador {
         }
         
         return salida;
-    }
-    
-    private boolean puedoEdificarCasa(TituloPropiedad propiedad) {
-        boolean puedoEdificarCasa = false;
-        
-        float precio = propiedad.getPrecioEdificar();
-        
-        if (this.puedoGastar(precio)) {
-            if (propiedad.getNumHoteles() < this.getCasaMax()) {
-                puedoEdificarCasa = true;
-            }
-        }
-        
-        return puedoEdificarCasa;
-    }
-    
-    private boolean puedoEdificarHotel(TituloPropiedad propiedad) {
-        boolean puedoEdificarHotel = false;
-        
-        float precio = propiedad.getPrecioEdificar();
-        
-        if (this.puedoGastar(precio)) {
-            if (propiedad.getNumHoteles() < this.getHotelesMax()) {
-                if (propiedad.getNumCasas() >= Jugador.CasasPorHotel) {
-                    puedoEdificarHotel = true;
-                }
-            }
-        }
-        
-        return puedoEdificarHotel;
     }
     
     @Override
