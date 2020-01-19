@@ -20,6 +20,7 @@ public class CivitasJuego {
     private GestorEstados gestorEstados;
     private MazoSorpresa mazo;
     private EstadosJuego estado;
+    private Boolean forzar;
     
     public CivitasJuego(ArrayList<String> nombres) {
         int totaljugadores = 4;
@@ -34,6 +35,7 @@ public class CivitasJuego {
         this.indiceJugadorActual = Dado.getInstance().quienEmpieza(totaljugadores);
         this.inicializarTablero(new MazoSorpresa());
         this.inicializarMazoSorpresas(this.tablero);
+        this.forzar = false;
     }
     
     private void avanzaJugador() {
@@ -44,7 +46,7 @@ public class CivitasJuego {
         tirada = Dado.getInstance().tirar();
         posicionNueva = this.tablero.nuevaPosicion(posicionActual, tirada);
         
-        Casilla casilla = this.tablero.getCasilla(posicionActual);
+        Casilla casilla = this.tablero.getCasilla(posicionNueva);
         
         this.contabilizarPasosPorSalida(jugadorActual);
         
@@ -62,12 +64,12 @@ public class CivitasJuego {
         Jugador jugadorActual = this.getJugadorActual();
         Casilla casilla = this.getCasillaActual();
         TituloPropiedad titulo = ((CasillaCalle) casilla).getTituloPropiedad();
-        boolean res = jugadorActual.comprar(titulo);
+        boolean res;
         
-        if (res) {
-            System.out.println("Lo has comprado");
+        if (titulo.tienePropietario()){
+            res = false;
         } else {
-            System.out.println("No lo has comprado");
+            res = jugadorActual.comprar(titulo);
         }
         
         return res;
@@ -88,7 +90,17 @@ public class CivitasJuego {
     }
     
     public boolean finalDelJuego() {
-        return this.getJugadorActual().enBancarrota();
+        Boolean salida = false;
+        
+        if (!forzar) {
+            for (int i = 0; i < jugadores.size() && !salida; i++) {
+                salida = jugadores.get(i).enBancarrota();
+            }
+        } else {
+            salida = forzar;
+        }
+        
+        return salida;
     }
     
     public Casilla getCasillaActual() {
@@ -113,8 +125,6 @@ public class CivitasJuego {
     }
     
     private void inicializarMazoSorpresas(Tablero tablero) {
-        this.tablero = tablero;
-        
         this.mazo.alMazo(new SorpresaPagarCobrar(-200, "Paga el impuesto de lujo"));
         this.mazo.alMazo(new SorpresaPagarCobrar(200, "Cobra"));
         
@@ -181,23 +191,11 @@ public class CivitasJuego {
     }
     
     public boolean salirCarcelPagando() {
-        boolean salida = this.getJugadorActual().salirCarcelPagando();
-        
-        if (salida) {
-            this.estado = EstadosJuego.DESPUES_CARCEL;
-        }
-        
-        return salida;
+        return this.getJugadorActual().salirCarcelPagando();
     }
     
     public boolean salirCarcelTirando() {
-        boolean salida = this.getJugadorActual().salirCarcelTirando();
-        
-        if (salida) {
-            this.estado = EstadosJuego.DESPUES_CARCEL;
-        }
-        
-        return salida;
+        return this.getJugadorActual().salirCarcelTirando();
     }
     
     public OperacionesJuego siguientePaso() {

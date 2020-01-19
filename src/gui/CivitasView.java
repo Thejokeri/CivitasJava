@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class CivitasView extends javax.swing.JFrame {
     private CivitasJuego juego;
-    private GestionarDialog gestionarD;
+    private GestionarDialog gestionarD = new GestionarDialog(this, true);
     
     /**
      * Creates new form CivitasView
@@ -34,13 +34,18 @@ public class CivitasView extends javax.swing.JFrame {
     public void actualizarVista() {
         this.jugadorPanel.setJugador(juego.getJugadorActual());
         this.casillaPanel.setCasilla(juego.getCasillaActual());
+        
+        jugadorPanel.setVisible(true);
+        casillaPanel.setVisible(true);
+        
+        
         repaint();
-        this.setVisible(true);
+        revalidate();
     }
     
     public void setCivitasJuego(CivitasJuego civitas) {
         juego = civitas;
-        new CivitasView().setVisible(true);
+        setVisible(true);
     }
     
     public void mostrarSiguienteOperacion(OperacionesJuego operacion) {
@@ -71,9 +76,7 @@ public class CivitasView extends javax.swing.JFrame {
     }
     
     void mostrarEventos() {
-        DiarioDialog diarioD = new DiarioDialog(this, true); // crear la ventana del 
-        diarioD.repaint();
-        diarioD.revalidate();
+        DiarioDialog diarioD = new DiarioDialog(this, true);
     }
     
     Respuestas comprar() {
@@ -94,10 +97,10 @@ public class CivitasView extends javax.swing.JFrame {
     }
     
     void gestionar() {
-        pack();
-        repaint();
-        revalidate();
         gestionarD.gestionar(juego.getJugadorActual());
+        gestionarD.pack();
+        gestionarD.repaint();
+        gestionarD.revalidate();
         gestionarD.setVisible(true);
     }
     

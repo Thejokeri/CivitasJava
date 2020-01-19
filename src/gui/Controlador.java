@@ -31,7 +31,9 @@ public class Controlador {
     void juega() {
         this.vista.setCivitasJuego(juego);
         
-        while(!this.juego.finalDelJuego()) {            
+        while(!this.juego.finalDelJuego()) {  
+            this.vista.actualizarVista();
+            
             OperacionesJuego siguientePaso = this.juego.siguientePaso();
             this.vista.mostrarSiguienteOperacion(siguientePaso);
             
@@ -70,9 +72,9 @@ public class Controlador {
                             this.juego.construirCasa(ip);
                         } else if (gestion == GestionesInmobiliarias.CONSTRUIR_HOTEL) {
                             this.juego.construirHotel(ip);
+                        } else {
+                            this.juego.siguientePasoCompletado(siguientePaso);
                         }
-                        
-                        this.juego.siguientePasoCompletado(siguientePaso);
                         break;
                     case SALIR_CARCEL:
                         SalidasCarcel salida = this.vista.salirCarcel();
@@ -86,8 +88,6 @@ public class Controlador {
                         this.juego.siguientePasoCompletado(siguientePaso);
                         break;
                 }
-                
-                this.vista.actualizarVista();
             }
             
         }

@@ -22,10 +22,10 @@ public class Jugador implements Comparable<Jugador> {
     private int numCasillaActual;
     protected static float PasoPorSalida = 1000;
     protected static float PrecioLibertad = 200;
-    private boolean puedeComprar;
+    protected boolean puedeComprar;
     private float saldo;
     private static float SaldoInicial = 7500;
-    private ArrayList<TituloPropiedad> propiedades = new ArrayList<TituloPropiedad>();
+    private ArrayList<TituloPropiedad> propiedades = new ArrayList<>();
     private SorpresaSalirCarcel salvoconducto;
     
     
@@ -164,12 +164,16 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     protected boolean debeSerEncarcelado() {
-        boolean salida = !this.encarcelado;
+        boolean salida = false;
         
-        if (salida && this.tieneSalvoconducto()) {
-            salida = false;
-            this.perderSalvoconducto();
-            Diario.getInstance().ocurreEvento("El jugador se ha librado de la carcel");
+        if (!this.encarcelado) {
+            if(this.tieneSalvoconducto()) {
+                salida = false;
+                this.perderSalvoconducto();
+                Diario.getInstance().ocurreEvento("El jugador se ha librado de la carcel y pierde salvoconducto");
+            } else {
+                salida = true;
+            }
         }
         
         return salida;
@@ -281,7 +285,7 @@ public class Jugador implements Comparable<Jugador> {
         
         if(!this.encarcelado) {
             salida = true;
-            this.salvoconducto = sorpresa;
+            this.salvoconducto = (SorpresaSalirCarcel) sorpresa;
         }
         
         return salida;
@@ -296,6 +300,7 @@ public class Jugador implements Comparable<Jugador> {
         
         if (!this.encarcelado) {
             salida = this.paga(cantidad);
+            Diario.getInstance().ocurreEvento("El jugador " + this.nombre + "paga el alquiler");
         }
         
         return salida;
@@ -306,19 +311,20 @@ public class Jugador implements Comparable<Jugador> {
         
         if (!this.encarcelado) {
             salida = this.paga(cantidad);
+            Diario.getInstance().ocurreEvento("El jugador " + this.nombre + "paga el impuesto");
         }
         
         return salida;
     }
     
     boolean pasaPorSalida() {
-        this.modificarSaldo(1000);
+        this.modificarSaldo(this.getPremioPasoSalida());
         Diario.getInstance().ocurreEvento("El jugador ha pasado por la salida");
         
         return true;
     }
     
-    private void perderSalvoconducto() {
+    protected void perderSalvoconducto() {
         this.salvoconducto.usada();
         this.salvoconducto = null;
     }
@@ -330,7 +336,7 @@ public class Jugador implements Comparable<Jugador> {
     }
     
     private boolean puedeSalirCarcelPagando() {
-        return this.saldo >= 200;
+        return this.saldo >= this.getPrecioLibertad();
     }
     
     private boolean puedoEdificarCasa(TituloPropiedad propiedad) {
@@ -378,6 +384,7 @@ public class Jugador implements Comparable<Jugador> {
         
         if (!this.encarcelado) {
             salida = this.modificarSaldo(cantidad);
+            Diario.getInstance().ocurreEvento("El jugador " + this.nombre + "recibe el pago");
         }
         
         return salida;
@@ -388,9 +395,9 @@ public class Jugador implements Comparable<Jugador> {
         
         if(this.encarcelado && this.puedeSalirCarcelPagando()) {
             salida = true;
-            this.paga(200);
+            this.paga(this.getPrecioLibertad());
             this.encarcelado = false;
-            Diario.getInstance().ocurreEvento("El jugador ha salido de la carcel");
+            Diario.getInstance().ocurreEvento("El jugador ha salido de la carcel pagando");
         }
         
         return salida;
@@ -401,7 +408,7 @@ public class Jugador implements Comparable<Jugador> {
         
         if(salida){
             this.encarcelado = false;
-            Diario.getInstance().ocurreEvento("El jugador ha salido de la carcel");
+            Diario.getInstance().ocurreEvento("El jugador ha salido de la carcel tirando");
         }
         
         return salida;
@@ -420,8 +427,8 @@ public class Jugador implements Comparable<Jugador> {
         
         if (!this.encarcelado) {
             if (this.existeLaPropiedad(ip) && this.propiedades.get(ip).vender(this)) {
+                Diario.getInstance().ocurreEvento("Se ha vendido la propiedad " + this.propiedades.get(ip).getNombre());
                 this.propiedades.remove(ip);
-                Diario.getInstance().ocurreEvento("Se ha vendido la propiedad");
                 salida = true;
             }
         }

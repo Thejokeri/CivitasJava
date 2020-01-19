@@ -35,7 +35,8 @@ public class JugadorPanel extends javax.swing.JPanel {
         estado = (jugador.isEncarcelado()) ? "Si" : "No";
         especuladorTextField.setText(estado);
         
-        this.rellenaPropiedades(jugador.getPropiedades());
+        repaint();
+        rellenaPropiedades(jugador.getPropiedades());
     }
     
     private void rellenaPropiedades(ArrayList<TituloPropiedad> lista) {

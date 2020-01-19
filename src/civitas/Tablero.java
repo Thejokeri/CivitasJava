@@ -27,7 +27,7 @@ public class Tablero {
             this.numCasillaCarcel = indice;
         }
 
-        this.casillas = new ArrayList<Casilla>();
+        this.casillas = new ArrayList<>();
         Casilla e = new Casilla("Salida");
         this.casillas.add(e);
 
@@ -103,6 +103,11 @@ public class Tablero {
     }
     
     int calcularTirada(int origen, int destino) {
-        return (destino - origen) + this.casillas.size();
+        int valor = (destino - origen);
+        
+        if (valor < 0)
+            valor += this.casillas.size();
+        
+        return valor;
     }
 }

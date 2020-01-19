@@ -26,6 +26,7 @@ public class CasillaJuez extends Casilla {
     
     @Override
     public String toString() {
-        return "\n   *---* Casilla Juez: " + super.getNombre() + " *---*";
+        return "\n   *---* Casilla Juez: " + super.getNombre() + " *---*"
+                + "\n *---* Numero: " + Integer.toString(carcel) + "*---*";
     }
 }

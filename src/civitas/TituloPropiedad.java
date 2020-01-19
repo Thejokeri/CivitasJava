@@ -45,9 +45,9 @@ public class TituloPropiedad {
         boolean result = false;
         
         if (this.hipotecado && this.esEsteElPropietario(jugador)) {
-                this.propietario.paga(this.getImporteCancelarHipoteca());
-                this.hipotecado = false;
-                result = true;
+            this.propietario.paga(this.getImporteCancelarHipoteca());
+            this.hipotecado = false;
+            result = true;
         }
         
         return result;

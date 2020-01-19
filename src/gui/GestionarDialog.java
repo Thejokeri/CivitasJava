@@ -119,6 +119,8 @@ public class GestionarDialog extends javax.swing.JDialog {
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
+        gestionesPane.setPreferredSize(new java.awt.Dimension(150, 200));
+
         listaGestiones.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
         listaGestiones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -129,6 +131,8 @@ public class GestionarDialog extends javax.swing.JDialog {
 
         jPanel4.add(gestionesPane);
         jPanel4.add(jSeparator2);
+
+        propiedadesPane.setPreferredSize(new java.awt.Dimension(150, 200));
 
         listaPropiedades.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
         listaPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {

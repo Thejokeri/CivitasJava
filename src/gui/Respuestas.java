@@ -5,8 +5,6 @@
  */
 package GUI;
 
-import civitas.*;
-
 /**
  *
  * @author thejoker

@@ -13,10 +13,12 @@ import java.util.ArrayList;
  */
 public class CasillaCalle extends Casilla {
     private TituloPropiedad tituloPropiedad;
+    private float importe;
     
     CasillaCalle(TituloPropiedad titulo) {
         super(titulo.getNombre());
         this.tituloPropiedad = titulo;
+        this.importe = titulo.getPrecioCompra();
     }
     
     TituloPropiedad getTituloPropiedad() {
@@ -29,13 +31,16 @@ public class CasillaCalle extends Casilla {
 
         if (!this.tituloPropiedad.tienePropietario()) {
             jugador.puedeComprarCasilla();
+            todos.get(actual).puedeComprar = true;
         } else {
             this.tituloPropiedad.tramitarAlquiler(jugador);
+            todos.get(actual).puedeComprar = false;
         }
     }
     
     @Override
     public String toString() {
-        return "\n   *---* Nombre de la propiedad: " + super.getNombre() + " *---*";
+        return "\n   *---* Nombre de la propiedad: " + super.getNombre() + " *---*"
+                + "\n *---* Importe: " + Float.toString(importe) + "*---*";
     }
 }

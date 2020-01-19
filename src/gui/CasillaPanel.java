@@ -26,21 +26,7 @@ public class CasillaPanel extends javax.swing.JPanel {
     }
 
     void setCasilla(Casilla casilla) {
-        this.removeAll();
-        
-        if (casilla instanceof CasillaCalle) {
-            nombreTextField.setText(casilla.getNombre());
-        } else if (casilla instanceof CasillaImpuesto) {
-            nombreTextField.setText(casilla.getNombre());
-        } else if (casilla instanceof CasillaJuez) {
-            nombreTextField.setText(casilla.getNombre());
-        } else if (casilla instanceof CasillaSorpresa) {
-            nombreTextField.setText(casilla.getNombre());
-        } else {
-            nombreTextField.setText(casilla.getNombre());
-        }
-        
-        repaint();
+        nombreTextField.setText(casilla.getNombre());
     }
     
     /**
@@ -65,7 +51,7 @@ public class CasillaPanel extends javax.swing.JPanel {
 
         nombreTextField.setToolTipText("nombre");
         nombreTextField.setEnabled(false);
-        nombreTextField.setPreferredSize(new java.awt.Dimension(90, 26));
+        nombreTextField.setPreferredSize(new java.awt.Dimension(200, 26));
         add(nombreTextField);
 
         jLabel2.setText("Importe:");
