@@ -51,37 +51,39 @@ public class PropiedadPanel extends javax.swing.JPanel {
         hipotecadaLabel = new javax.swing.JLabel();
         hipotecadaTextField = new javax.swing.JTextField();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         nombrePropiedadLabel.setText("Nombre:");
         nombrePropiedadLabel.setToolTipText("Nombre");
-        add(nombrePropiedadLabel);
+        add(nombrePropiedadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 10, -1, -1));
 
         nombrePropiedadTextField.setToolTipText("Nombre");
         nombrePropiedadTextField.setEnabled(false);
-        add(nombrePropiedadTextField);
+        add(nombrePropiedadTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 5, -1, -1));
 
         casasLabel.setText("Nº Casas:");
         casasLabel.setToolTipText("Numero de casas");
-        add(casasLabel);
+        add(casasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 10, -1, -1));
 
         casasTextField.setToolTipText("Numero de casas");
         casasTextField.setEnabled(false);
-        add(casasTextField);
+        add(casasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 5, -1, -1));
 
         hotelesLabel.setText("Nº de Hoteles:");
         hotelesLabel.setToolTipText("Numero de hoteles");
-        add(hotelesLabel);
+        add(hotelesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 10, -1, -1));
 
         hotelesTextField.setToolTipText("Numero de hoteles");
         hotelesTextField.setEnabled(false);
-        add(hotelesTextField);
+        add(hotelesTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 5, -1, -1));
 
         hipotecadaLabel.setText("Hipotecada:");
         hipotecadaLabel.setToolTipText("hipotecada");
-        add(hipotecadaLabel);
+        add(hipotecadaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 10, -1, -1));
 
         hipotecadaTextField.setToolTipText("hipotecada");
         hipotecadaTextField.setEnabled(false);
-        add(hipotecadaTextField);
+        add(hipotecadaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 5, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

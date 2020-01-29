@@ -63,14 +63,15 @@ public class CivitasJuego {
     public boolean comprar() {
         Jugador jugadorActual = this.getJugadorActual();
         Casilla casilla = this.getCasillaActual();
-        TituloPropiedad titulo = ((CasillaCalle) casilla).getTituloPropiedad();
-        boolean res;
+        boolean res = false;
         
-        if (titulo.tienePropietario()){
-            res = false;
-        } else {
-            res = jugadorActual.comprar(titulo);
-        }
+        if (casilla instanceof CasillaCalle) {
+            TituloPropiedad titulo = ((CasillaCalle) casilla).getTituloPropiedad();
+            
+            if (!titulo.tienePropietario()){
+                res = jugadorActual.comprar(titulo);
+            }
+        }  
         
         return res;
     }
@@ -149,7 +150,7 @@ public class CivitasJuego {
         this.tablero = new Tablero(9);
         this.mazo = mazo;
         
-        this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Ronda de Valencia", (float) 35, (float) 0.5, (float) 55, (float) 60, (float) 120)));
+        //this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Ronda de Valencia", (float) 35, (float) 0.5, (float) 55, (float) 60, (float) 120)));
         this.tablero.aniadeCasilla(new CasillaSorpresa(this.mazo, "Caja de Comunidad"));
         this.tablero.aniadeCasilla(new CasillaImpuesto((float) 200, "Impuesto sobre el capital"));
         

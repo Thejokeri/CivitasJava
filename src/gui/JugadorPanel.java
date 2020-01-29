@@ -80,49 +80,50 @@ public class JugadorPanel extends javax.swing.JPanel {
 
         setToolTipText("Propiedades del jugador");
         setLocation(new java.awt.Point(50, 50));
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         propiedades.setBorder(javax.swing.BorderFactory.createTitledBorder("Propiedades"));
-        add(propiedades, java.awt.BorderLayout.PAGE_END);
+        add(propiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 266, 423, 190));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Jugador Actual"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nombreLabel.setText("Nombre:");
         nombreLabel.setToolTipText("Nombre");
-        jPanel1.add(nombreLabel);
+        jPanel1.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 28, -1, -1));
 
         nombreTextField.setToolTipText("Nombre del jugador");
         nombreTextField.setEnabled(false);
         nombreTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(nombreTextField);
+        jPanel1.add(nombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 23, -1, -1));
 
         saldoLabel.setText("Saldo:");
         saldoLabel.setToolTipText("Saldo");
-        jPanel1.add(saldoLabel);
+        jPanel1.add(saldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 28, -1, -1));
 
         saldoTextField.setToolTipText("Saldo del jugador");
         saldoTextField.setEnabled(false);
         saldoTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(saldoTextField);
+        jPanel1.add(saldoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 23, -1, -1));
 
         encarceladoLabel.setText("Encarcelado:");
         encarceladoLabel.setToolTipText("Encarcelado");
-        jPanel1.add(encarceladoLabel);
+        jPanel1.add(encarceladoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 28, -1, -1));
 
         encarceladoTextField.setToolTipText("");
         encarceladoTextField.setEnabled(false);
         encarceladoTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(encarceladoTextField);
+        jPanel1.add(encarceladoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         especuladorLabel.setText("Especulador:");
         especuladorLabel.setToolTipText("Especulador");
-        jPanel1.add(especuladorLabel);
+        jPanel1.add(especuladorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 59, -1, -1));
 
         especuladorTextField.setEnabled(false);
         especuladorTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(especuladorTextField);
+        jPanel1.add(especuladorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 54, -1, -1));
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 423, 266));
     }// </editor-fold>//GEN-END:initComponents
 
 
