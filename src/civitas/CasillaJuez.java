@@ -19,6 +19,10 @@ public class CasillaJuez extends Casilla {
         this.carcel = numCasillaCarcel;
     }
     
+    public int getCarcel() {
+        return this.carcel;
+    }
+    
     public void recibeJugador_juez(int actual, ArrayList<Jugador> todos) {
         super.informe(actual, todos);
         todos.get(actual).encarcelar(carcel);

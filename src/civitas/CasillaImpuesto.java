@@ -19,6 +19,10 @@ public class CasillaImpuesto extends Casilla {
         this.importe = cantidad;
     }
     
+    public float getImporte() {
+        return this.importe;
+    }
+    
     public void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos) {
         super.informe(actual, todos);
         todos.get(actual).pagaImpuesto(importe);

@@ -25,8 +25,32 @@ public class CasillaPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    void setCasilla(Casilla casilla) {
+    void setCasilla(Casilla casilla) { 
         nombreTextField.setText(casilla.getNombre());
+        
+        importeTextField.setVisible(false);
+        importeLabel.setVisible(false);
+        
+        if (casilla instanceof CasillaCalle) {
+            tipoCasillaLabel.setText("Calle");
+        
+            float valor = ((CasillaCalle) casilla).getImporte();
+            importeTextField.setText(Float.toString(valor));
+        } else if (casilla instanceof CasillaImpuesto) {
+            tipoCasillaLabel.setText("Impuesto");
+        
+            float valor = ((CasillaImpuesto) casilla).getImporte();
+            importeTextField.setText(Float.toString(valor));
+        } else if (casilla instanceof CasillaJuez) {
+            tipoCasillaLabel.setText("Juez");
+        
+            int valor = ((CasillaJuez) casilla).getCarcel();
+            importeTextField.setText(Integer.toString(valor));
+        } else if (casilla instanceof CasillaSorpresa) {
+            tipoCasillaLabel.setText("Sorpresa");
+        } else {
+            tipoCasillaLabel.setText("Descanso");
+        }
     }
     
     /**
@@ -38,37 +62,45 @@ public class CasillaPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipoCasillaLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nombreTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        importeLabel = new javax.swing.JLabel();
         importeTextField = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Casilla Actual"));
+        setLayout(new java.awt.BorderLayout());
+        add(tipoCasillaLabel, java.awt.BorderLayout.PAGE_START);
 
         jLabel1.setText("Nombre:");
         jLabel1.setToolTipText("nombre");
-        add(jLabel1);
+        jPanel1.add(jLabel1);
 
         nombreTextField.setToolTipText("nombre");
         nombreTextField.setEnabled(false);
         nombreTextField.setPreferredSize(new java.awt.Dimension(200, 26));
-        add(nombreTextField);
+        jPanel1.add(nombreTextField);
 
-        jLabel2.setText("Importe:");
-        jLabel2.setToolTipText("importe");
-        add(jLabel2);
+        importeLabel.setText("Importe:");
+        importeLabel.setToolTipText("importe");
+        jPanel1.add(importeLabel);
 
         importeTextField.setToolTipText("importe");
         importeTextField.setEnabled(false);
         importeTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        add(importeTextField);
+        jPanel1.add(importeTextField);
+
+        add(jPanel1, java.awt.BorderLayout.LINE_START);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel importeLabel;
     private javax.swing.JTextField importeTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreTextField;
+    private javax.swing.JLabel tipoCasillaLabel;
     // End of variables declaration//GEN-END:variables
 }

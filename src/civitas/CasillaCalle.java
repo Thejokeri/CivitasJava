@@ -25,6 +25,10 @@ public class CasillaCalle extends Casilla {
         return this.tituloPropiedad;
     }
     
+    public float getImporte() {
+        return this.importe;
+    }
+    
     public void recibeJugador_calle(int actual, ArrayList<Jugador> todos) {
         super.informe(actual, todos);
         Jugador jugador = todos.get(actual);

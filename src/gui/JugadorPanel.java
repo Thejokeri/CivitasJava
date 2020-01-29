@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import civitas.Especulador;
 import civitas.Jugador;
 import civitas.TituloPropiedad;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class JugadorPanel extends javax.swing.JPanel {
         saldoTextField.setText(Float.toString(jugador.getSaldo()));
         estado = (jugador.isEncarcelado()) ? "Si" : "No";
         encarceladoTextField.setText(estado);
-        estado = (jugador.isEncarcelado()) ? "Si" : "No";
+        estado = jugador.isEspeculador() ? "Si" : "No";
         especuladorTextField.setText(estado);
         
         repaint();
@@ -69,6 +70,7 @@ public class JugadorPanel extends javax.swing.JPanel {
 
         propiedades = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         nombreLabel = new javax.swing.JLabel();
         nombreTextField = new javax.swing.JTextField();
         saldoLabel = new javax.swing.JLabel();
@@ -86,42 +88,45 @@ public class JugadorPanel extends javax.swing.JPanel {
         add(propiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 266, 423, 190));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Jugador Actual"));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(180, 150));
 
         nombreLabel.setText("Nombre:");
         nombreLabel.setToolTipText("Nombre");
-        jPanel1.add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 28, -1, -1));
+        jPanel2.add(nombreLabel);
 
         nombreTextField.setToolTipText("Nombre del jugador");
         nombreTextField.setEnabled(false);
         nombreTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(nombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 23, -1, -1));
+        jPanel2.add(nombreTextField);
 
         saldoLabel.setText("Saldo:");
         saldoLabel.setToolTipText("Saldo");
-        jPanel1.add(saldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 28, -1, -1));
+        jPanel2.add(saldoLabel);
 
         saldoTextField.setToolTipText("Saldo del jugador");
         saldoTextField.setEnabled(false);
         saldoTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(saldoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 23, -1, -1));
+        jPanel2.add(saldoTextField);
 
         encarceladoLabel.setText("Encarcelado:");
         encarceladoLabel.setToolTipText("Encarcelado");
-        jPanel1.add(encarceladoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 28, -1, -1));
+        jPanel2.add(encarceladoLabel);
 
         encarceladoTextField.setToolTipText("");
         encarceladoTextField.setEnabled(false);
         encarceladoTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(encarceladoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+        jPanel2.add(encarceladoTextField);
 
         especuladorLabel.setText("Especulador:");
         especuladorLabel.setToolTipText("Especulador");
-        jPanel1.add(especuladorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 59, -1, -1));
+        jPanel2.add(especuladorLabel);
 
         especuladorTextField.setEnabled(false);
         especuladorTextField.setPreferredSize(new java.awt.Dimension(90, 26));
-        jPanel1.add(especuladorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 54, -1, -1));
+        jPanel2.add(especuladorTextField);
+
+        jPanel1.add(jPanel2);
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 423, 266));
     }// </editor-fold>//GEN-END:initComponents
@@ -133,6 +138,7 @@ public class JugadorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel especuladorLabel;
     private javax.swing.JTextField especuladorTextField;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
     private javax.swing.JPanel propiedades;

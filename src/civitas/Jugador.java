@@ -118,6 +118,10 @@ public class Jugador implements Comparable<Jugador> {
         return result;
     } 
     
+    public Boolean isEspeculador() {
+        return false;
+    }
+    
     boolean construirCasa(int ip) {
         boolean result = false;
         

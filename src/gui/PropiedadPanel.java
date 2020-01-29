@@ -42,6 +42,7 @@ public class PropiedadPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         nombrePropiedadLabel = new javax.swing.JLabel();
         nombrePropiedadTextField = new javax.swing.JTextField();
         casasLabel = new javax.swing.JLabel();
@@ -51,39 +52,43 @@ public class PropiedadPanel extends javax.swing.JPanel {
         hipotecadaLabel = new javax.swing.JLabel();
         hipotecadaTextField = new javax.swing.JTextField();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(250, 105));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(240, 100));
 
         nombrePropiedadLabel.setText("Nombre:");
         nombrePropiedadLabel.setToolTipText("Nombre");
-        add(nombrePropiedadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 10, -1, -1));
+        jPanel1.add(nombrePropiedadLabel);
 
         nombrePropiedadTextField.setToolTipText("Nombre");
         nombrePropiedadTextField.setEnabled(false);
-        add(nombrePropiedadTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 5, -1, -1));
+        jPanel1.add(nombrePropiedadTextField);
 
         casasLabel.setText("Nº Casas:");
         casasLabel.setToolTipText("Numero de casas");
-        add(casasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 10, -1, -1));
+        jPanel1.add(casasLabel);
 
         casasTextField.setToolTipText("Numero de casas");
         casasTextField.setEnabled(false);
-        add(casasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 5, -1, -1));
+        jPanel1.add(casasTextField);
 
         hotelesLabel.setText("Nº de Hoteles:");
         hotelesLabel.setToolTipText("Numero de hoteles");
-        add(hotelesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 10, -1, -1));
+        jPanel1.add(hotelesLabel);
 
         hotelesTextField.setToolTipText("Numero de hoteles");
         hotelesTextField.setEnabled(false);
-        add(hotelesTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 5, -1, -1));
+        jPanel1.add(hotelesTextField);
 
         hipotecadaLabel.setText("Hipotecada:");
         hipotecadaLabel.setToolTipText("hipotecada");
-        add(hipotecadaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 10, -1, -1));
+        jPanel1.add(hipotecadaLabel);
 
         hipotecadaTextField.setToolTipText("hipotecada");
         hipotecadaTextField.setEnabled(false);
-        add(hipotecadaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 5, -1, -1));
+        jPanel1.add(hipotecadaTextField);
+
+        add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -94,6 +99,7 @@ public class PropiedadPanel extends javax.swing.JPanel {
     private javax.swing.JTextField hipotecadaTextField;
     private javax.swing.JLabel hotelesLabel;
     private javax.swing.JTextField hotelesTextField;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nombrePropiedadLabel;
     private javax.swing.JTextField nombrePropiedadTextField;
     // End of variables declaration//GEN-END:variables
