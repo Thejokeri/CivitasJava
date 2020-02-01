@@ -166,25 +166,19 @@ public class CivitasJuego {
         this.tablero.aniadeCasilla(new Casilla("Parking Gratuito"));
 
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Avenida de America", (float) 115, (float) 0.5, (float) 215, (float) 220, (float) 440)));
-        this.tablero.aniadeCasilla(new CasillaSorpresa(this.mazo, "Suerte"));
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Calle de Cea Bermudez", (float) 125, (float) 0.5, (float) 235, (float) 240, (float) 480)));
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Avenida de los Reyes Catolicos", (float) 135, (float) 0.5, (float) 255, (float) 260, (float) 520)));
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Plaza de Espana", (float) 145, (float) 0.5, (float) 275, (float) 280, (float) 560)));
         this.tablero.aniadeJuez();
 
         this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Puerta del Sol", (float) 155, (float) 0.5, (float) 295, (float) 300, (float) 600)));
-        this.tablero.aniadeCasilla(new CasillaSorpresa(this.mazo, "Caja de Comunidad"));
-        this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Gran Via", (float) 165, (float) 0.5, (float) 315, (float) 320, (float) 640)));
-        this.tablero.aniadeCasilla(new CasillaSorpresa(this.mazo, "Suerte"));
-        this.tablero.aniadeCasilla(new CasillaImpuesto((float) 100, "Impuesto de Lujo"));
-        this.tablero.aniadeCasilla(new CasillaCalle(new TituloPropiedad("Paseo del Prado", (float) 205, (float) 0.5, (float) 395, (float) 400, (float) 800)));
     }
     
     private void pasarTurno() {
         this.indiceJugadorActual = (this.indiceJugadorActual + 1) % this.jugadores.size();
     }
     
-    private ArrayList<Jugador> ranking() {
+    public ArrayList<Jugador> ranking() {
         ArrayList<Jugador> ranking = new ArrayList<>(this.jugadores);
         Collections.sort(ranking);
         

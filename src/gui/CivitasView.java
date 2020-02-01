@@ -6,6 +6,7 @@
 package GUI;
 
 import civitas.CivitasJuego;
+import civitas.Jugador;
 import civitas.OperacionesJuego;
 import javax.swing.JOptionPane;
 import civitas.Respuestas;
@@ -38,6 +39,18 @@ public class CivitasView extends javax.swing.JFrame {
         jugadorPanel.setVisible(true);
         casillaPanel.setVisible(true);
         
+        rankingPanel.setVisible(false);
+        
+        if(juego.finalDelJuego()) {
+            ArrayList<Jugador> rank = juego.ranking();
+            String r = "";
+            
+            for (Jugador j: rank) {
+                r = r + j.getNombre() + "\n";
+            }
+            ranking.setText(r);
+            rankingPanel.setVisible(true);
+        }
         
         repaint();
         revalidate();
@@ -125,6 +138,9 @@ public class CivitasView extends javax.swing.JFrame {
         casillaPanel = new GUI.CasillaPanel();
         jPanel1 = new javax.swing.JPanel();
         operacionLabel = new javax.swing.JLabel();
+        rankingPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ranking = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(50, 50));
@@ -139,6 +155,18 @@ public class CivitasView extends javax.swing.JFrame {
         jPanel1.add(operacionLabel);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        rankingPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ranking"));
+        rankingPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        ranking.setEditable(false);
+        ranking.setColumns(20);
+        ranking.setRows(5);
+        jScrollPane1.setViewportView(ranking);
+
+        rankingPanel.add(jScrollPane1);
+
+        getContentPane().add(rankingPanel, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,7 +207,10 @@ public class CivitasView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.CasillaPanel casillaPanel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private GUI.JugadorPanel jugadorPanel;
     private javax.swing.JLabel operacionLabel;
+    private javax.swing.JTextArea ranking;
+    private javax.swing.JPanel rankingPanel;
     // End of variables declaration//GEN-END:variables
 }

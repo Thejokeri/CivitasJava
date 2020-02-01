@@ -349,7 +349,7 @@ public class Jugador implements Comparable<Jugador> {
         float precio = propiedad.getPrecioEdificar();
         
         if (this.puedoGastar(precio)) {
-            if (propiedad.getNumCasas() < Jugador.CasasMax) {
+            if (propiedad.getNumCasas() < this.getCasaMax()) {
                 puedoEdificarCasa = true;
             }
         }
@@ -363,8 +363,8 @@ public class Jugador implements Comparable<Jugador> {
         float precio = propiedad.getPrecioEdificar();
         
         if (this.puedoGastar(precio)) {
-            if (propiedad.getNumHoteles() < Jugador.HotelesMax) {
-                if (propiedad.getNumCasas() >= Jugador.CasasPorHotel) {
+            if (propiedad.getNumHoteles() < this.getHotelesMax()) {
+                if (propiedad.getNumCasas() >= this.getCasasPorHotel()) {
                     puedoEdificarHotel = true;
                 }
             }
